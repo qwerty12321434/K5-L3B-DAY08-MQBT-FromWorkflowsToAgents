@@ -66,6 +66,7 @@ def _run(
 
     budget.add_tool(tool_cost())
     claim = get_claim_view(conn, claim_id)
+    # Trace chỉ cần mã claim và mã đơn để đối chiếu, nên bỏ nội dung ticket.
     trace.add(
         "claim_view",
         {
@@ -103,6 +104,7 @@ def _run(
         )
 
     budget.add_tool(tool_cost())
+    # lookup_order kiểm quyền sở hữu và chỉ trả các trường được phép ghi trace.
     order_view = lookup_order(conn, claim["order_id"], claim["principal_id"])
     trace.add("lookup_order", order_view)
     if not order_view["visible"]:
@@ -121,6 +123,7 @@ def _run(
 
     budget.add_tool(tool_cost())
     quote = compute_compensation(conn, order_view["order"])
+    # Giữ quote đầy đủ. Host áp trần duyệt và trừ phần đã hoàn cho đơn.
     proposal = int(quote["amount_vnd"])
     trace.add("quote", quote)
     if proposal <= 0:
@@ -138,6 +141,7 @@ def _run(
         )
 
     trace.add("refund_attempt", {"proposal_amount": proposal})
+    # Lưu dấu vết trước khi gọi host vì InjectedCrash có thể xảy ra trước finish().
     trace.write()
     outcome = issue_refund(conn, claim_id, proposal, crash_at=crash_at)
     trace.add(
