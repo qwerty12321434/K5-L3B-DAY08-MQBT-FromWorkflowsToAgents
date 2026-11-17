@@ -15,6 +15,7 @@ __pycache__/
 *.sqlite-*
 traces/
 student_drop/
+CHECKPOINTS.zip
 src/reports/hidden_grade.json
 src/reports/bonus_hidden.json
 
