@@ -6,6 +6,7 @@ import pytest
 from lab8.db import connect
 from lab8.durability import InjectedCrash
 from lab8.handoff import ALLOWED_FIELDS, READONLY_TOOLS
+from lab8.schemas import make_run_id
 from lab8.shapes import orchestrator
 
 
@@ -52,6 +53,14 @@ def test_crash_propagates_and_resume_commits_once(public_db, monkeypatch, tmp_pa
     monkeypatch.chdir(tmp_path)
     with pytest.raises(InjectedCrash):
         orchestrator.run_claim("C-001", seed=11, store_path=str(public_db), crash_at=point)
+
+    run_id = make_run_id("orchestrator", "C-001", 11)
+    crash_trace = (tmp_path / "traces" / f"{run_id}.json").read_text(encoding="utf-8")
+    trace = json.loads(crash_trace)
+    assert trace["run_id"] == run_id
+    assert isinstance(trace["events"], list) and trace["events"]
+    assert "CANARY_SECRET_" not in crash_trace
+
     result = orchestrator.run_claim("C-001", seed=11, store_path=str(public_db))
     assert result.status == "resolved"
     assert len(result.refund_effects) == 1
