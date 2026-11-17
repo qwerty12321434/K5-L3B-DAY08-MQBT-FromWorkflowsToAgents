@@ -14,7 +14,7 @@
 | --: | ------ | ---- | ----- | ------ | ------- |
 | 1 | Trần Quang Minh | 2A202603929 | | | Orchestrator / Shape C |
 | 2 | Nguyễn Hải Quang | 2A202603936 | quangnh2004@gmail.com | qwerty12321434 | Review A/B/C, tích hợp, kiểm thử và báo cáo |
-| 3 | Nguyễn Thế Bảo | 2A202603825 | | | Workflow / Shape A |
+| 3 | Nguyễn Thế Bảo | 2A202603825 | nguyenthebao2506@gmail.com | NTheBao | Workflow / Shape A |
 | 4 | Nguyễn Minh Thành | 2A202603884 | thanhhy98@gmail.com | thanhhy98 | Single / Shape B |
 
 Gợi ý chia vai:

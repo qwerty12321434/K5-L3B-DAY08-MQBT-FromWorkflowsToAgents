@@ -4,8 +4,8 @@
 
 - Họ tên: Nguyễn Thế Bảo
 - MSSV: 2A202603825
-- Email:
-- GitHub:
+- Email: nguyenthebao2506@gmail.com
+- GitHub: NTheBao
 
 ## 2. Phần việc phụ trách
 
@@ -23,8 +23,8 @@ Workflow (Shape A).
 
 ## 5. Công cụ AI đã dùng
 
-Thành viên bổ sung công cụ, phần việc được hỗ trợ và cách tự kiểm.
+Tôi dùng Copilot để hỗ trợ triển khai và rà soát luồng Workflow, tập trung vào contract `RunResult`, trace, quote đầy đủ và cách chuyển tiếp `crash_at`. Tôi đối chiếu thay đổi với luật nghiệp vụ, xem diff và chạy ma trận student của Workflow thay vì dựa riêng vào gợi ý của AI.
 
 ## 6. Tự đánh giá
 
-Thành viên bổ sung nhận xét và bài học từ việc triển khai Workflow.
+Qua Workflow, tôi hiểu rõ hơn vì sao phải dùng dữ liệu đơn và policy làm nguồn sự thật, còn ticket chỉ là đầu vào không đáng tin. Tôi cũng học được cách để host kiểm soát refund, idempotency và crash thay vì tự xử lý ở shape. Lần sau, tôi sẽ kiểm tra kỹ bộ lọc test để chắc chắn lệnh chỉ chạy đúng shape cần kiểm tra.
