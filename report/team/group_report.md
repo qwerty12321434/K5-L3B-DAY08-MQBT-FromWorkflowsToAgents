@@ -36,9 +36,21 @@ Ca lệch duy nhất là Swarm ở `C-002` (T02), seed `55`. Ticket báo trễ 5
 
 Crash suite đạt **20/20**. Ma trận student đạt **248/248**, gồm T11 gọi lại và T12 crash/resume cho cả bốn shape. Kiểm tra bổ sung trên `C-001` ở seed `11` xác nhận cả bốn shape có trace ở cả ba điểm crash và sau khi chạy lại chỉ có một refund cùng một audit `refund_committed`. [Crash report](../../src/reports/crash.json)
 
-Số liệu trên là kết quả public đã đối chiếu với code, test và report tại commit `f46f236`. Điểm hidden của shape chọn chờ grader giảng viên xác nhận.
+Số liệu public đã được đối chiếu với code, test và report tại commit `f46f236`.
 
 Ablation R2 trên Swarm chặn việc ghi đè số ngày trễ của đơn bằng số ngày trong ticket. Kết quả tăng từ 69/70 lên 70/70, với một trial thay đổi là T02 seed 55. Kết quả ablation được ghi riêng với benchmark bốn shape. [Phiếu nghiên cứu](research_card.md) · [Quyết định kiến trúc](decision_adr.md)
+
+### Tự kiểm trên bộ hidden
+
+Nhóm chạy Workflow, Single và Orchestrator trên cùng 40 claim từ `student_drop/` với 5 seed `11, 22, 33, 44, 55`. Mỗi shape chạy 200 trial, tổng cộng **600 trial**. Số liệu lấy từ `src/reports/hidden_selfcheck.json` trên máy nhóm.
+
+| Shape | Trial đã chạy | Lỗi chạy | Lỗi trace | Cảnh báo `leak_suspect` | Event trace trung bình |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Workflow | 200 | 0 | 0 | 0 | 5,15 |
+| Single | 200 | 0 | 0 | 0 | 5,08 |
+| Orchestrator | 200 | 0 | 0 | 0 | 4,50 |
+
+Cả 600 trial có `reason: unlabeled`. Bộ tự kiểm thiếu nhãn đáp án nên chưa tính được pass rate, pass^5 hay cost/success. Grader của giảng viên sẽ chấm Workflow theo ADR để xác nhận ngưỡng **75% (ít nhất 150/200 trial đúng)** và các cổng an toàn.
 
 ## 5. Khó khăn và cách xử lý
 
