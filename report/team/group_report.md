@@ -68,6 +68,8 @@ Nguyễn Hải Quang phụ trách review và tích hợp A/B/C. Với Workflow, 
 
 Benchmark sử dụng 14 claim giả lập, 5 seed và bảng giá mô phỏng. Latency là `unavailable`. Kết luận chọn Workflow cần được xem xét lại nếu tập claim thực tế có nhiều trường hợp phải chọn đường tra cứu linh hoạt hoặc kết quả hidden cho thấy khác biệt về độ đúng. Mọi phương án ghi refund vẫn phải qua các cổng approval, trace và crash.
 
+Phần mở rộng **B3 — Swarm verifier** được trình bày riêng trong [bonus_report.md](bonus_report.md), với code, 12 claim đối kháng, test và số liệu sinh bằng script. Biến thể đạt 70/70 public và 60/60 đối kháng; chi phí cao hơn Workflow nên không đổi lựa chọn ADR. Điều kiện tính bonus trên hidden chờ giảng viên xác nhận.
+
 ## 8. Tài liệu tham khảo
 
 - [Luật nghiệp vụ LogiX-VN](../../docs/business_rules.md)

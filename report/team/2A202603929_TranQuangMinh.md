@@ -41,6 +41,8 @@ Phần tích hợp sau đó ở commit `e0f56b0` do Nguyễn Hải Quang thực 
 
 ## 5. Công cụ AI đã dùng
 
+Phần mở rộng B3 được bổ sung với hỗ trợ Codex: [Swarm verifier](../../src/bonus/swarm_verified.py), 12 claim với nhãn viết trực tiếp theo luật nghiệp vụ, runner đo safety và [test bonus](../../src/tests/test_bonus_swarm_verified.py). Bằng chứng chạy: 70 test bonus pass; toàn bộ 135 test mặc định và 248 test student pass. [Báo cáo bonus](bonus_report.md) ghi kết quả public 70/70, đối kháng 60/60 và crash/retry 3/3 của biến thể. Chi phí tăng nên nhóm vẫn chọn Workflow; chưa kết luận về hidden. Không gắn phần bổ sung này với commit Orchestrator cũ `ef07efa`.
+
 Sử dụng **Codex (OpenAI)** để đọc yêu cầu CP2–CP3, tham khảo contract và các helper có sẵn, hỗ trợ triển khai orchestrator, viết test và tổng hợp bằng chứng cho báo cáo.
 
 Kết quả do AI hỗ trợ được kiểm chứng bằng việc chạy smoke, test nền, ma trận student của Orchestrator và các test bổ sung nêu trên. Các test kiểm ledger/audit thực tế sau resume, kiểm phản ứng của host khi thiếu approval và quét nội dung handoff/trace thay vì chỉ dựa vào phần giải thích của AI. Số liệu báo cáo lấy từ output kiểm thử và file benchmark do công cụ sinh; không sửa tay JSON hay tự đặt run ID, commit hash.
