@@ -12,7 +12,7 @@
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 |        |      |       |        |         |
-|   2 |        |      |       |        |         |
+|   2 |   Nguyễn Minh Thành     | 2A202603884     |   thanhhy98@gmail.com    |    thanhhy98    |    Member     |
 
 Gợi ý chia vai:
 
